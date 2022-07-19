@@ -1,4 +1,4 @@
-import { prop, getModelForClass } from '@typegoose/typegoose'
+import { prop, getModelForClass } from '@typegoose/typegoose';
 
 export class URL {
     @prop({ required: true })
@@ -9,6 +9,6 @@ export class URL {
 
     @prop({ required: true })
     shortURL!: string
-}
+};
 
-export const URLModel = getModelForClass(URL)
+export const URLModel = getModelForClass(URL);

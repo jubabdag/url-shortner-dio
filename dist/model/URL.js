@@ -26,5 +26,6 @@ __decorate([
     __metadata("design:type", String)
 ], URL.prototype, "shortURL", void 0);
 exports.URL = URL;
+;
 exports.URLModel = (0, typegoose_1.getModelForClass)(URL);
 //# sourceMappingURL=URL.js.map

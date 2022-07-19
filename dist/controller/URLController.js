@@ -13,7 +13,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.URLController = void 0;
-const Constants_1 = require("../config/Constants");
+require('dotenv/config');
 const shortid_1 = __importDefault(require("shortid"));
 const URL_1 = require("../model/URL");
 class URLController {
@@ -26,7 +26,7 @@ class URLController {
                 return;
             }
             const hash = shortid_1.default.generate();
-            const shortURL = `${Constants_1.config.API_URL}/${hash}`;
+            const shortURL = `${process.env.API_URL}/${hash}`;
             const newUrl = yield URL_1.URLModel.create({ hash, shortURL, originURL });
             res.json({ newUrl });
         });
@@ -44,4 +44,5 @@ class URLController {
     }
 }
 exports.URLController = URLController;
+;
 //# sourceMappingURL=URLController.js.map

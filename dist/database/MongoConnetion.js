@@ -13,13 +13,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MongoConnection = void 0;
-const Constants_1 = require("../config/Constants");
+require('dotenv/config');
 const mongoose_1 = __importDefault(require("mongoose"));
 class MongoConnection {
     connect() {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                yield mongoose_1.default.connect(Constants_1.config.MONGO_CONNECTION);
+                yield mongoose_1.default.connect(process.env.MONGO_CONNECTION);
                 console.log('Database conected');
             }
             catch (err) {
@@ -30,4 +30,5 @@ class MongoConnection {
     }
 }
 exports.MongoConnection = MongoConnection;
+;
 //# sourceMappingURL=MongoConnetion.js.map

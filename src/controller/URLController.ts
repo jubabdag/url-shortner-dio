@@ -1,7 +1,8 @@
-import { config } from '../config/Constants'
-import { Request, Response } from 'express'
-import shortId from 'shortid'
-import { URLModel } from '../model/URL'
+require('dotenv/config');
+
+import { Request, Response } from 'express';
+import shortId from 'shortid';
+import { URLModel } from '../model/URL';
 
 export class URLController {
   public async shorten(req: Request, res: Response): Promise<void> {
@@ -12,7 +13,7 @@ export class URLController {
       return
     }
     const hash = shortId.generate()
-    const shortURL = `${config.API_URL}/${hash}`
+    const shortURL = `${process.env.API_URL}/${hash}`
     const newUrl = await URLModel.create({ hash, shortURL, originURL })
     res.json({ newUrl })
   }
@@ -28,4 +29,4 @@ export class URLController {
 
     res.status(400).json({ error: 'URL not found' })
   }
-}
+};
